@@ -1,7 +1,14 @@
-import React from 'react'
-import p from '../assets/images/colleague.png'
+import React from 'react';
+import { useApi } from '../hooks/useApi';
+import { fetchColleagues } from '../api/endpoints';
+import { useLocale } from '../utils/locale';
+import { mediaUrl } from '../api/client';
 
 export default function Colleagues() {
+  const { data, loading } = useApi(fetchColleagues);
+  const t = useLocale();
+  const colleagues = data || [];
+
   return (
     <section className='Colleagues'>
       <div className="container">
@@ -15,31 +22,17 @@ export default function Colleagues() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-4">
-            <div className="personal-card">
-              <img src={p} alt="personal" />
-              <h3>Зафар Ходжиматов</h3>
-              <p>Основатель, Генеральный директор</p>
+          {!loading && colleagues.map((c) => (
+            <div className="col-md-4" key={c.id}>
+              <div className="personal-card">
+                <img src={mediaUrl(c.image)} alt={t(c, 'full_name')} />
+                <h3>{t(c, 'full_name')}</h3>
+                <p>{t(c, 'position')}</p>
+              </div>
             </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="personal-card">
-              <img src={p} alt="personal" />
-              <h3>Зафар Ходжиматов</h3>
-              <p>Основатель, Генеральный директор</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="personal-card">
-              <img src={p} alt="personal" />
-              <h3>Зафар Ходжиматов</h3>
-              <p>Основатель, Генеральный директор</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

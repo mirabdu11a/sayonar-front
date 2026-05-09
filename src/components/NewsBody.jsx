@@ -1,7 +1,14 @@
-import React from 'react'
-import p1 from '../assets/news.png';
+import React from 'react';
+import { useApi } from '../hooks/useApi';
+import { fetchNews } from '../api/endpoints';
+import { useLocale } from '../utils/locale';
+import { mediaUrl } from '../api/client';
 
 export default function NewsBody() {
+  const { data, loading } = useApi(fetchNews);
+  const t = useLocale();
+  const news = data || [];
+
   return (
     <section className='NewsBody'>
       <div className="container">
@@ -12,52 +19,17 @@ export default function NewsBody() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-4 block">
-            <div className="news-card">
-              <img src={p1} alt="news image" />
-              <p className='date'> 29.08.2025</p>
-              <h4>SAYONAR укрепляет партнёрские связи с Японией</h4>
-              <h5>В рамках развития сотрудничества в течение 2025 года были выстроены партнёрские взаимоотношения с японскими компаниями.</h5>
+          {!loading && news.map((item) => (
+            <div className="col-md-4 block" key={item.id}>
+              <div className="news-card">
+                <img src={mediaUrl(item.image)} alt={t(item, 'title')} />
+                <h4>{t(item, 'title')}</h4>
+                <h5>{t(item, 'description')}</h5>
+              </div>
             </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="news-card">
-              <img src={p1} alt="news image" />
-              <p className='date'> 29.08.2025</p>
-              <h4>SAYONAR укрепляет партнёрские связи с Японией</h4>
-              <h5>В рамках развития сотрудничества в течение 2025 года были выстроены партнёрские взаимоотношения с японскими компаниями.</h5>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="news-card">
-              <img src={p1} alt="news image" />
-              <p className='date'> 29.08.2025</p>
-              <h4>SAYONAR укрепляет партнёрские связи с Японией</h4>
-              <h5>В рамках развития сотрудничества в течение 2025 года были выстроены партнёрские взаимоотношения с японскими компаниями.</h5>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="news-card">
-              <img src={p1} alt="news image" />
-              <p className='date'> 29.08.2025</p>
-              <h4>SAYONAR укрепляет партнёрские связи с Японией</h4>
-              <h5>В рамках развития сотрудничества в течение 2025 года были выстроены партнёрские взаимоотношения с японскими компаниями.</h5>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="news-card">
-              <img src={p1} alt="news image" />
-              <p className='date'> 29.08.2025</p>
-              <h4>SAYONAR укрепляет партнёрские связи с Японией</h4>
-              <h5>В рамках развития сотрудничества в течение 2025 года были выстроены партнёрские взаимоотношения с японскими компаниями.</h5>
-            </div>
-          </div>  
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

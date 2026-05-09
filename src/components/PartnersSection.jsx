@@ -1,11 +1,14 @@
-import React from 'react'
-import p1 from '../assets/p1.svg'
-import p2 from '../assets/p2.svg'
-import p3 from '../assets/p3.svg'
-import p4 from '../assets/p4.svg'
-import p5 from '../assets/p5.svg'
+import React from 'react';
+import { useApi } from '../hooks/useApi';
+import { fetchPartners } from '../api/endpoints';
+import { useLocale } from '../utils/locale';
+import { mediaUrl } from '../api/client';
 
 export default function PartnersSection() {
+  const { data, loading } = useApi(fetchPartners);
+  const t = useLocale();
+  const partners = data || [];
+
   return (
     <section className='PartnersSection'>
       <div className="container">
@@ -22,22 +25,20 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        <div className="logo-body">
-          <div>
-            <img src={p1} alt="partners" />
+        {!loading && partners.map((partner) => (
+          <div className="partner-block" key={partner.id}>
+            <h3>{t(partner, 'title')}</h3>
+            <p>{t(partner, 'description')}</p>
+            <div className="logo-body">
+              {(partner.images || []).map((img) => (
+                <div key={img.id}>
+                  <img src={mediaUrl(img.image)} alt={t(partner, 'title')} />
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <img src={p2} alt="partners" />
-          </div>
-          <div>
-            <img src={p3} alt="partners" />
-          </div>
-          <div>
-            <img src={p5} alt="partners" />
-            <img src={p4} alt="partners" />
-          </div>
-        </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
