@@ -737,30 +737,22 @@
     background-repeat: no-repeat;
   }
 
-  /* 🔥 ASOSIY QISM (TO‘G‘RILANGAN) */
-  .row {
-    @for $i from 1 through 4 {
-      > div:nth-child(#{$i}) .strategiya-card {
-        background-image: url('./assets/images/s#{$i}.png');
-      }
-    }
+  .strategiya-card {
+    background-color: #C0996F;
   }
 
-  .strategiya-card div {
+  .strategiya-card > div {
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 32px 32px 120px 32px;
+    height: 100%;
     background: linear-gradient(
       180deg,
-      #C0996F 35.11%,
-      rgba(192, 153, 111, 0) 99.87%
+      rgba(192, 153, 111, 0.95) 0%,
+      rgba(192, 153, 111, 0.55) 60%,
+      rgba(192, 153, 111, 0) 100%
     );
-
-    img {
-      width: 64px;
-      height: 64px;
-    }
 
     h3 {
       margin: 0;
@@ -771,10 +763,31 @@
 
     p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 16px;
       line-height: 24px;
     }
+  }
+
+  .strategiya-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #1E1E1E;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+
+  .row > div:nth-child(2) .strategiya-badge,
+  .row > div:nth-child(3) .strategiya-badge {
+    background: #2E9C8E;
+    color: #F2D9A6;
   }
 }
 

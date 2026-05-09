@@ -24,9 +24,12 @@ export default function Strategiya() {
         <div className="row">
           {!loading && items.map((s, i) => (
             <div className={i % 4 === 0 || i % 4 === 3 ? 'col-md-7' : 'col-md-5'} key={s.id}>
-              <div className='strategiya-card'>
+              <div
+                className='strategiya-card'
+                style={s.image ? { backgroundImage: `url(${mediaUrl(s.image)})` } : undefined}
+              >
                 <div>
-                  <img src={mediaUrl(s.image)} alt={t(s, 'title')} />
+                  <span className='strategiya-badge'>S{i + 1}</span>
                   <h3>{t(s, 'title')}</h3>
                   <p>{t(s, 'description')}</p>
                 </div>
