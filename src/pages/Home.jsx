@@ -9,6 +9,7 @@ import Strategiya from '../components/Strategiya'
 import Colleagues from '../components/Colleagues'
 import Clients from '../components/Clients'
 import HomeNews from '../components/HomeNews'
+import CountryMap from '../components/CountryMap'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Strategiya/>
       <Colleagues/>
       <Clients/>
+      <CountryMap/>
       <HomeNews/>
     </>
   )
