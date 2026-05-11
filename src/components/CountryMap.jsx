@@ -22,7 +22,7 @@ const PATH_TO_NAMES = {
 function findRegion(pathId, regions) {
   const candidates = PATH_TO_NAMES[pathId] || [];
   return regions.find((r) =>
-    candidates.some((n) => r.name_uz === n || r.name_ru === n)
+    candidates.some((n) => r.name_ru === n)
   ) || null;
 }
 

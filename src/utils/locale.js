@@ -1,6 +1,6 @@
 import { useLanguage } from '../context';
 
-const LANG_FALLBACK = ['ru', 'uz', 'en'];
+const LANG_FALLBACK = ['ru', 'en'];
 
 export function pickLocale(obj, lang, key) {
   if (!obj) return '';
