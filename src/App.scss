@@ -782,6 +782,13 @@
     font-weight: 600;
     letter-spacing: -0.3px;
     margin-bottom: 8px;
+    overflow: hidden;
+
+    img {
+      max-width: 70%;
+      max-height: 70%;
+      object-fit: contain;
+    }
   }
 
   .row > div:nth-child(2) .strategiya-badge,

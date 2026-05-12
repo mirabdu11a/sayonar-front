@@ -29,7 +29,9 @@ export default function Strategiya() {
                 style={s.image ? { backgroundImage: `url(${mediaUrl(s.image)})` } : undefined}
               >
                 <div>
-                  <span className='strategiya-badge'>S{i + 1}</span>
+                  <span className='strategiya-badge'>
+                    {s.icon ? <img src={mediaUrl(s.icon)} alt="" /> : `S${i + 1}`}
+                  </span>
                   <h3>{t(s, 'title')}</h3>
                   <p>{t(s, 'description')}</p>
                 </div>
