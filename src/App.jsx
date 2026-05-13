@@ -41,7 +41,7 @@ function App() {
         <Route path='/our-services' element={<Services />} />
         <Route path='/news' element={<News />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/more' element={<NewsDetail />} />
+        <Route path='/news/:id' element={<NewsDetail />} />
 
       </Routes>
       <Footer/>

@@ -989,6 +989,9 @@ background: linear-gradient(0deg, #FCEAD2 0%, #FCEAD2 100%), #FFF;
   }
  
   .news-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     img {
       border-radius: 10px;
       width: 100%;
@@ -1707,6 +1710,9 @@ background: linear-gradient(0deg, #FCEAD2 0%, #FCEAD2 100%), #FFF;
   }
 
   .news-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     margin-bottom: 64px;
     img {
       border-radius: 10px;

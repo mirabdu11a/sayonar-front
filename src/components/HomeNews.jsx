@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -51,11 +52,11 @@ export default function HomeNews() {
             >
               {news.map((item) => (
                 <SwiperSlide key={item.id}>
-                  <div className="news-card">
+                  <Link to={`/news/${item.id}`} className="news-card">
                     <img src={mediaUrl(item.image)} alt={p(item, 'title')} />
                     <h4>{p(item, 'title')}</h4>
                     <h5>{p(item, 'description')}</h5>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>

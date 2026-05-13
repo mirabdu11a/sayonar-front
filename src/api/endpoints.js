@@ -1,6 +1,7 @@
 import { apiGet } from './client';
 
 export const fetchNews = () => apiGet('/api/news/');
+export const fetchNewsById = (id) => apiGet(`/api/news/${id}/`);
 export const fetchPartners = () => apiGet('/api/partner/');
 export const fetchClients = () => apiGet('/api/client/');
 export const fetchColleagues = () => apiGet('/api/colleague/');

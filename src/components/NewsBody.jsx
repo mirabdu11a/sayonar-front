@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useApi } from '../hooks/useApi';
 import { fetchNews } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
@@ -23,11 +24,11 @@ export default function NewsBody() {
         <div className="row">
           {!loading && news.map((item) => (
             <div className="col-md-4 block" key={item.id}>
-              <div className="news-card">
+              <Link to={`/news/${item.id}`} className="news-card">
                 <img src={mediaUrl(item.image)} alt={p(item, 'title')} />
                 <h4>{p(item, 'title')}</h4>
                 <h5>{p(item, 'description')}</h5>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
