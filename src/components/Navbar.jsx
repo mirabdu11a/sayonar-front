@@ -9,7 +9,6 @@ import flagEn from '../assets/flags/gb.svg'
 import flagZh from '../assets/flags/cn.svg'
 
 import { NavLink } from 'react-router-dom'
-import { LANGUANGE } from '../locale'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../context'
 
@@ -17,15 +16,11 @@ export default function Navbar() {
 
   const dropdownRef = useRef(null)
 
-  const { changeLanguage } = useLanguage()
+  const { language: lang, changeLanguage } = useLanguage()
   const { i18n } = useTranslation()
   const { t } = useTranslation()
 
   const [open, setOpen] = useState(false)
-
-  const [lang, setLang] = useState(
-    localStorage.getItem(LANGUANGE) || 'ru'
-  )
 
   const languages = {
     ru: { name: "Русский", flag: flagRu },
@@ -34,16 +29,8 @@ export default function Navbar() {
   }
 
   const changeLocale = (lng) => {
-    setLang(lng)
-
-    localStorage.setItem(LANGUANGE, lng)
-
     i18n.changeLanguage(lng)
-
-    if (changeLanguage) {
-      changeLanguage(lng)
-    }
-
+    changeLanguage(lng)
     setOpen(false)
   }
 
