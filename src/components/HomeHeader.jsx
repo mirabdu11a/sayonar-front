@@ -1,7 +1,9 @@
 import React from 'react'
 import heroIMG from '../assets/images/hero.webp'
+import { useTranslation } from "react-i18next";
 
 export default function HomeHeader() {
+  const { t } = useTranslation();
   return (
     <header className='HomeHeader'>
       <div className="header-body">
@@ -9,8 +11,8 @@ export default function HomeHeader() {
           <div className="container">
             <div className="col-6 block">
 
-              <h2>SAYONAR - Созидание Успеха</h2> 
-              <p>Компания «SAYONAR» — дистрибьютор продуктов Лидеров своих категорий в FMCG сегменте на рынке Республики Узбекистан.</p>
+              <h2>{t("homeHeaderTitle")}</h2> 
+              <p>{t("homeHeaderInfo")}</p>
             </div>
 
           </div>
@@ -18,7 +20,7 @@ export default function HomeHeader() {
         <div className='header-infoblock2'>
           <div className="container">
             <div className="col-6 block">
-              <p>Добро пожаловать на сайт нашей Компании! <br /><br /> Наши сотрудники имеют колоссальный опыт по импорту и дистрибуции потребительских товаров. <br /> <br />Наша миссия - Обеспечить Потребителя высококачественными продуктами,сделав их максимально доступными каждому.</p>
+              <p>{t("homeHeaderInfo2")} <br /><br /> {t("homeHeaderInfo3")} <br /> <br />{t("homeHeaderInfo4")}</p>
             </div>
           </div>
         </div>
@@ -29,8 +31,8 @@ export default function HomeHeader() {
       <div className="img-info">
         <div>
 
-          <h4>Зафар Ходжиматов</h4>
-          <p>Основатель и Генеральный Директор Компании</p>
+          <h4>{t("CEOname")}</h4>
+          <p>{t("CEOposition")}</p>
         </div>
       </div>
     </header>

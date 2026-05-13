@@ -10,11 +10,13 @@ import { useApi } from '../hooks/useApi';
 import { fetchNews } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
 import { mediaUrl } from '../api/client';
+import { useTranslation } from "react-i18next";
 
 export default function HomeNews() {
   const { data, loading } = useApi(fetchNews);
-  const t = useLocale();
+  const p = useLocale();
   const news = data || [];
+  const { t } = useTranslation();
 
   return (
     <section className='HomeNews'>
@@ -22,10 +24,10 @@ export default function HomeNews() {
         <div className="section-tittle">
           <div className='first-block col-md-3'>
             <div className="disc"></div>
-            <p>Наши Новости</p>
+            <p>{t("homeNewsInfo")}</p>
           </div>
           <div className='second-block'>
-            <h2 className='col-md-9'>Будьте в курсе наших новостей и событий</h2>
+            <h2 className='col-md-9'>{t("homeNewsTitle")}</h2>
           </div>
         </div>
 
@@ -50,9 +52,9 @@ export default function HomeNews() {
               {news.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className="news-card">
-                    <img src={mediaUrl(item.image)} alt={t(item, 'title')} />
-                    <h4>{t(item, 'title')}</h4>
-                    <h5>{t(item, 'description')}</h5>
+                    <img src={mediaUrl(item.image)} alt={p(item, 'title')} />
+                    <h4>{p(item, 'title')}</h4>
+                    <h5>{p(item, 'description')}</h5>
                   </div>
                 </SwiperSlide>
               ))}

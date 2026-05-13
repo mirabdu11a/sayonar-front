@@ -725,7 +725,7 @@
 .Strategiya {
   padding: 80px 0;
 
-  .section-tittle{ display: flex; align-items: start; padding-top: 80px; border-top: 1px solid #EAEAEA; margin-bottom: 60px; h2{ color: #1E1E1E; font-size: 48px; font-style: normal; font-weight: 600; line-height: normal; letter-spacing: -1.2px; padding: 0; margin-bottom: 20px; } .second-block{ p{ color: #63615E; font-size: 17px; font-style: normal; font-weight: var(--font-weight-500, 500); line-height: var(--line-height-24, 24px); /* 141.176% */ letter-spacing: var(--letter-spacing--0_1, -0.1px); margin-bottom: 41px; } button{ display: flex; border: none; padding: 16px 32px; justify-content: center; align-items: center; color: #FFF; font-size: 16px; font-style: normal; font-weight: 500; line-height: var(--font-size-20, 20px); /* 125% */ gap: 8px; margin-bottom: 60px; border-radius: 999px; background: linear-gradient(0deg, #D1B392 0%, #D1B392 100%), #00EB91; } } .first-block{ display: flex; align-items: center; gap: 12px; p{ margin: 0; padding: 0; color: #29292B; font-size: 16.9px; font-style: normal; font-weight: var(--font-weight-500, 500); line-height: var(--line-height-26, 26px); /* 153.846% */ letter-spacing: var(--letter-spacing--0_1, -0.1px); } .disc{ width: 13px; height: 13px; flex-shrink: 0; aspect-ratio: 1/1; border-radius: 100px; background: #D1B392; } } }
+  .section-tittle{ display: flex; gap: 30px; align-items: start; padding-top: 80px; border-top: 1px solid #EAEAEA; margin-bottom: 60px; h2{ color: #1E1E1E; font-size: 48px; font-style: normal; font-weight: 600; line-height: normal; letter-spacing: -1.2px; padding: 0; margin-bottom: 20px; } .second-block{ p{ color: #63615E; font-size: 17px; font-style: normal; font-weight: var(--font-weight-500, 500); line-height: var(--line-height-24, 24px); /* 141.176% */ letter-spacing: var(--letter-spacing--0_1, -0.1px); margin-bottom: 41px; } button{ display: flex; border: none; padding: 16px 32px; justify-content: center; align-items: center; color: #FFF; font-size: 16px; font-style: normal; font-weight: 500; line-height: var(--font-size-20, 20px); /* 125% */ gap: 8px; margin-bottom: 60px; border-radius: 999px; background: linear-gradient(0deg, #D1B392 0%, #D1B392 100%), #00EB91; } } .first-block{ display: flex; align-items: center; gap: 12px; p{ margin: 0; padding: 0; color: #29292B; font-size: 16.9px; font-style: normal; font-weight: var(--font-weight-500, 500); line-height: var(--line-height-26, 26px); /* 153.846% */ letter-spacing: var(--letter-spacing--0_1, -0.1px); } .disc{ width: 13px; height: 13px; flex-shrink: 0; aspect-ratio: 1/1; border-radius: 100px; background: #D1B392; } } }
 
   .strategiya-card {
     margin-bottom: 25px;
@@ -1797,81 +1797,247 @@ background: linear-gradient(0deg, #FCEAD2 0%, #FCEAD2 100%), #FFF;
   }
 }
 
-
-.map-card-wrapper {
+.UzbekistanMap {
   padding: 80px 0;
-  display: flex;
-
-  .svg-container {
-    flex: 2;
+  background: #F8F8F8;
+  .center-title{
+  padding: 40px 0;
+  border-top: 1px solid #EAEAEA;
+  
+  h2{
+    color: #1E1E1E;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: var(--font-weight-600, 600);
+    line-height: normal;
+    letter-spacing: var(--letter-spacing--2, -2px);
+    margin-bottom: 20px;
+  }
+  p{
+    color: #7F7F80;
+    text-align: center;
+    font-size: 16.9px;
+    font-style: normal;
+    font-weight: var(--font-weight-500, 500);
+    line-height: var(--line-height-24, 24px); /* 142.012% */
+    letter-spacing: var(--letter-spacing--0_1, -0.1px);
+    margin-bottom: 40px;
+  }
+  button{
     display: flex;
-    align-items: center;
+    padding: 16px 32px;
     justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: linear-gradient(0deg, #D1B392 0%, #D1B392 100%), #00EB91;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--font-size-20, 20px); /* 125% */
+    border: none;
+    margin: 0 auto;
+    
+  }
+}
+
+  .map-wrapper {
+    display: flex;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
+  }
+
+  .map-side {
+    width: 70%;
+    background: #f8f8f8;
 
     svg {
       width: 100%;
       height: 100%;
-      overflow: visible;
 
       path {
-        fill: #d2b48c; // Jivarrang-qum rangi
-        stroke: #fff;
-        stroke-width: 1px;
+        fill: #d2b48c; 
+        stroke: #ffffff;
+        stroke-width: 2;
         cursor: pointer;
-        transition: all 0.3s ease;
-        vector-effect: non-scaling-stroke; // Chiziq qalinligini masshtabga qaram qilmaydi
+        transition: 0.3s;
 
         &:hover {
-          fill: #c4a47c;
+          fill: #c7a37a;
         }
+      }
 
-        &.active {
-          fill: #8b6b4a; // Tanlangan viloyat rangi
-          filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
-        }
+      .active-region {
+        fill: #b88b5d !important;
       }
     }
   }
 
   .info-side {
-    display: flex;
-    width: 516px;
-    padding: 40px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-    align-self: stretch;
-    background: #FCEAD2;
+    width: 30%;
+    background: #e4d3bd;
+    padding: 40px 30px;
 
-    h2 {
-      color: #1E1E1E;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      letter-spacing: -0.5px;
-      margin-bottom: 32px;
+    @media (max-width: 992px) {
+      width: 100%;
     }
 
-    .info-list {
+    h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #3d3125;
+    }
+
+    ul {
       list-style: none;
       padding: 0;
 
       li {
-        margin-bottom: 18px;
-        color: #697696;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: var(--opacity-20, 20px); /* 125% */
-
-        span {
-          font-size: 18px;
-        }
+        margin-bottom: 20px;
+        line-height: 1.5;
+        color: #4d4032;
       }
     }
   }
 }
+
+// .map-card-wrapper {
+//   padding: 80px 0;
+//   display: flex;
+//   background-image: url(./assets/section-bg.png);
+//   background-size: cover;
+//   background-repeat: no-repeat;
+
+//   .center-title{
+//     padding: 40px 0;
+//     border-top: 1px solid #EAEAEA;
+    
+//     h2{
+//       color: #1E1E1E;
+//       text-align: center;
+//       font-size: 48px;
+//       font-style: normal;
+//       font-weight: var(--font-weight-600, 600);
+//       line-height: normal;
+//       letter-spacing: var(--letter-spacing--2, -2px);
+//       margin-bottom: 20px;
+//     }
+//     p{
+//       color: #7F7F80;
+//       text-align: center;
+//       font-size: 16.9px;
+//       font-style: normal;
+//       font-weight: var(--font-weight-500, 500);
+//       line-height: var(--line-height-24, 24px); /* 142.012% */
+//       letter-spacing: var(--letter-spacing--0_1, -0.1px);
+//       margin-bottom: 40px;
+//     }
+//     button{
+//       display: flex;
+//       padding: 16px 32px;
+//       justify-content: center;
+//       align-items: center;
+//       gap: 8px;
+//       border-radius: 999px;
+//       background: linear-gradient(0deg, #D1B392 0%, #D1B392 100%), #00EB91;
+//       color: #FFF;
+//       font-size: 16px;
+//       font-style: normal;
+//       font-weight: 500;
+//       line-height: var(--font-size-20, 20px); /* 125% */
+//       border: none;
+//       margin: 0 auto;
+      
+//     }
+//   }
+//   .svg-container {
+//     flex: 2;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+    
+
+//     svg {
+//       // width: 100%;
+//       // height: 100%;
+//       overflow: visible;
+      
+      
+//       .regions-group{
+//         position: relative;
+//         width: 712.296px;
+//         height: 384.64px;
+//       }
+      
+//       path {
+//         position: absolute;
+//         fill: #d2b48c; // Jivarrang-qum rangi
+//         stroke: #fff;
+//         stroke-width: 1px;
+//         cursor: pointer;
+//         transition: all 0.3s ease;
+//         vector-effect: non-scaling-stroke; // Chiziq qalinligini masshtabga qaram qilmaydi
+
+//         &:hover {
+//           fill: #c4a47c;
+//         }
+
+//         &.active {
+//           fill: #8b6b4a; // Tanlangan viloyat rangi
+//           filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+//         }
+//       }
+//       #nukus{
+//         right: 0;
+//         top: 0; 
+        
+//       }
+//     }
+//   }
+
+//   .info-side {
+//     display: flex;
+//     width: 516px;
+//     padding: 40px;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     gap: 32px;
+//     align-self: stretch;
+//     background: #FCEAD2;
+
+//     h2 {
+//       color: #1E1E1E;
+//       font-size: 24px;
+//       font-style: normal;
+//       font-weight: 500;
+//       line-height: normal;
+//       letter-spacing: -0.5px;
+//       margin-bottom: 32px;
+//     }
+
+//     .info-list {
+//       list-style: none;
+//       padding: 0;
+
+//       li {
+//         margin-bottom: 18px;
+//         color: #697696;
+//         font-size: 16px;
+//         font-style: normal;
+//         font-weight: 500;
+//         line-height: var(--opacity-20, 20px); /* 125% */
+
+//         span {
+//           font-size: 18px;
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 .Footer{
@@ -1947,6 +2113,7 @@ background: linear-gradient(0deg, #FCEAD2 0%, #FCEAD2 100%), #FFF;
     }
   }
 }
+
 .Regions {
   padding: 80px 0;
   .regions-grid {
@@ -2013,4 +2180,91 @@ background: linear-gradient(0deg, #FCEAD2 0%, #FCEAD2 100%), #FFF;
       }
     }
   }
+}
+
+.MoreNews{
+  padding: 80px 0;
+
+  .more-info{
+    padding: 2px 8px;
+    display: inline-flex;
+    padding: var(--4x s, 2px) var(--xs, 8px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--4xs, 2px);
+    border-radius: var(--Full-Radius, 999px);
+    background: var(--White-Grey-3, #EAEAEA);
+    color: var(--Black-Charcoal, #222);
+    text-align: center;
+    font-variant-numeric: slashed-zero;
+    font-feature-settings: 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'cv07' on, 'cv10' on, 'cv11' on;
+    font-size: var(--Font-Size-sm, 14px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.2px;
+    margin-bottom: 34px;
+  }
+
+  h2{
+    color: var(--Black-Black, #000);
+    font-variant-numeric: slashed-zero;
+    font-size: var(--Font-Size-6xl, 56px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 67.2px */
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+  }
+  .news-tizer{
+    color: var(--Dark-Grey-Grey-9, #5E5E5E);
+    font-variant-numeric: slashed-zero;
+    font-size: var(--Font-Size-md, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.3px;
+    margin-bottom: 80px;
+  }
+  img{
+    width: 100%;
+  }
+
+  .first-img{
+    margin-bottom: 80px;
+  }
+
+  .data-block{
+    color: var(--Light-Grey-Grey-7, #ABABAB);
+    font-size: var(--Font-Size-sm, 14px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+  }
+
+  .more-texts{
+    h3{
+      color: var(--Black-Black, #000);
+      font-variant-numeric: slashed-zero;
+      font-size: var(--Font-Size-4xl, 40px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%; /* 48px */
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    p{
+      color: var(--Grey---20, #6B6C72);
+      font-variant-numeric: slashed-zero;
+      font-size: var(--Font-Size-md, 16px);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 180%; /* 28.8px */
+      letter-spacing: -0.3px;
+    }
+  }
+
 }

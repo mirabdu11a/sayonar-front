@@ -59,7 +59,7 @@ export default function Navbar() {
 
               <div className='first'>
                 <img src={location} alt="location" />
-                г. Ташкент, Мирабадский район, ул. Афросиаб, 15/2
+                {t('addres')}
               </div>
 
               <img src={line} alt="line" />
@@ -125,14 +125,14 @@ export default function Navbar() {
               <ul>
                 <li><NavLink to='/'>{t('home')}</NavLink></li>
                 <li><NavLink to='/about'>{t('about')}</NavLink></li>
-                <li><NavLink to='/our-services'>Услуги</NavLink></li>
-                <li><NavLink to='/news'>Новости</NavLink></li>
-                <li><NavLink to='/contact'>Контакты</NavLink></li>
+                <li><NavLink to='/our-services'>{t('services')}</NavLink></li>
+                <li><NavLink to='/news'>{t('news')}</NavLink></li>
+                <li><NavLink to='/contact'>{t('contact')}</NavLink></li>
               </ul>
 
             </div>
 
-            <button>Связаться</button>
+            <button>{t('connect')}</button>
 
           </div>
 

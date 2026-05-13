@@ -5,15 +5,17 @@ import ico3 from '../assets/advantages/3.svg'
 import ico4 from '../assets/advantages/4.svg'
 import ico5 from '../assets/advantages/5.svg'
 import ico6 from '../assets/advantages/6.svg'
+import { useTranslation } from "react-i18next";
 
 export default function ServicesBody() {
+  const { t } = useTranslation();
   return (
     <section className='ServicesBody'>
       <div className="container">
         <div className="row">
           <div className="col-md-6 title">
-            <h2>Наши возможности</h2>
-            <p>Комплексные решения в области дистрибуции, логистики и развития продаж для вашего бизнеса</p>
+            <h2>{t("serviceTitle")}</h2>
+            <p>{t("serviceInfo")}</p>
           </div>
         </div>
         <div className="row">

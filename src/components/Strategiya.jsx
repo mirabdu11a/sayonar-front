@@ -3,11 +3,13 @@ import { useApi } from '../hooks/useApi';
 import { fetchStrategies } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
 import { mediaUrl } from '../api/client';
+import { useTranslation } from "react-i18next";
 
 export default function Strategiya() {
   const { data, loading } = useApi(fetchStrategies);
-  const t = useLocale();
+  const p = useLocale();
   const items = data || [];
+  const { t } = useTranslation();
 
   return (
     <section className='Strategiya'>
@@ -15,10 +17,10 @@ export default function Strategiya() {
         <div className="section-tittle">
           <div className='first-block col-md-3'>
             <div className="disc"></div>
-            <p>Наша стратегия развития продаж</p>
+            <p>{t("strategiyaInfo")}</p>
           </div>
           <div className='second-block'>
-            <h2 className='col-md-9'>Стратегия развития продаж в Узбекистане</h2>
+            <h2 className='col-md-9'>{t("strategiyaTittle")}</h2>
           </div>
         </div>
         <div className="row">
@@ -30,8 +32,8 @@ export default function Strategiya() {
               >
                 <div>
                   <span className='strategiya-badge'>S{i + 1}</span>
-                  <h3>{t(s, 'title')}</h3>
-                  <p>{t(s, 'description')}</p>
+                  <h3>{p(s, 'title')}</h3>
+                  <p>{p(s, 'description')}</p>
                 </div>
               </div>
             </div>

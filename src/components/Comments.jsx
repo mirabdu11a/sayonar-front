@@ -6,20 +6,22 @@ import p3 from '../assets/people/3.png'
 import p4 from '../assets/people/4.png'
 import p5 from '../assets/people/5.png'
 import p6 from '../assets/people/6.png'
+import { useTranslation } from "react-i18next";
 
 export default function Comments() {
+  const { t } = useTranslation();
   return (
     <section className='Comments'>
       <div className="container">
         <div className="section-tittle">
           <div className='first-block col-md-3'>
             <div className="disc"></div>
-            <p>Отзывы наших партнеров</p>
+            <p>{t("commentsInfo")}</p>
           </div>
           <div className='second-block'>
-            <h2 className='col-md-9'>Почему компании выбирают SAYONAR</h2>
-            <p>Наши партнёры ценят надёжность, стабильные поставки и результат, который мы обеспечиваем на каждом этапе сотрудничества</p>
-            <button>Начать сотрудничество</button>
+            <h2 className='col-md-9'>{t("commentsTitle")}</h2>
+            <p>{t("commentsInfo2")}</p>
+            <button>{t("commentsBtn")}</button>
           </div>
         </div>
 
@@ -27,12 +29,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>SAYONAR помог нам выстроить стабильную дистрибуцию по всей стране. Поставки стали быстрее, а процессы — прозрачнее.</p>
+              <p>{t("commentText1")}</p>
               <div className='person-info'>
                 <img src={p1} alt="person" />
                 <div>
-                  <h4>Коммерческий директор</h4>
-                  <p>FMCG компания</p>
+                  <h4>{t("commentPosition1")}</h4>
+                  <p>{t("commentOwner1")}</p>
                 </div>
               </div>
             </div>
@@ -41,12 +43,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>Благодаря их логистике мы значительно сократили издержки и ускорили доставку продукции в регионы.</p>
+              <p>{t("commentText2")}</p>
               <div className='person-info'>
                 <img src={p2} alt="person" />
                 <div>
-                  <h4>Руководитель отдела логистики</h4>
-                  <p>Дистрибьюторская компания</p>
+                  <h4>{t("commentPosition2")}</h4>
+                  <p>{t("commentOwner2")}</p>
                 </div>
               </div>
             </div>
@@ -55,12 +57,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>Команда SAYONAR глубоко понимает рынок и помогает эффективно развивать бренд в Узбекистане.</p>
+              <p>{t("commentText3")}</p>
               <div className='person-info'>
                 <img src={p3} alt="person" />
                 <div>
-                  <h4>Маркетинг директор</h4>
-                  <p>Международный бренд</p>
+                  <h4>{t("commentPosition3")}</h4>
+                  <p>{t("commentOwner3")}</p>
                 </div>
               </div>
             </div>
@@ -69,12 +71,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>Сотрудничество с ними позволило нам быстро выйти в крупные торговые сети и увеличить продажи.</p>
+              <p>{t("commentText4")}</p>
               <div className='person-info'>
                 <img src={p4} alt="person" />
                 <div>
-                  <h4>Руководитель продаж</h4>
-                  <p>Производственная компания</p>
+                  <h4>{t("commentPosition4")}</h4>
+                  <p>{t("commentOwner4")}</p>
                 </div>
               </div>
             </div>
@@ -83,12 +85,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>Надёжный партнёр, который всегда выполняет обязательства и соблюдает сроки поставок.</p>
+              <p>{t("commentText5")}</p>
               <div className='person-info'>
                 <img src={p5} alt="person" />
                 <div>
-                  <h4>Генеральный директор</h4>
-                  <p>Розничная сеть</p>
+                  <h4>{t("commentPosition5")}</h4>
+                  <p>{t("commentOwner5")}</p>
                 </div>
               </div>
             </div>
@@ -97,12 +99,12 @@ export default function Comments() {
           <div className="col-md-4 block">
             <div className="comment-card">
               <img className='stars' src={stars} alt="stars" />
-              <p>Отличная команда и выстроенные процессы. Полный контроль на всех этапах — от склада до точки продаж.</p>
+              <p>{t("commentText6")}</p>
               <div className='person-info'>
                 <img src={p6} alt="person" />
                 <div>
-                  <h4>Операционный директор</h4>
-                  <p>FMCG компания</p>
+                  <h4>{t("commentPosition6")}</h4>
+                  <p>{t("commentOwner6")}</p>
                 </div>
               </div>
             </div>

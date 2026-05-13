@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 
 export default function Reputation() {
+  const { t } = useTranslation();
   return (
     <section className='Reputation'>
       <div className="container">
         <div className="reputation-block">
           <div className="reputation-info">
-            <h2>Наша репутация - ваши гарантии успеха</h2>
-            <p>Мы ценим доверие наших клиентов и стремимся к установлению взаимовыгодных долгосрочных партнерских отношений</p>
-            <button>Связаться с нами</button>
+            <h2>{t("reputationTitle")}</h2>
+            <p>{t("reputationInfo")}</p>
+            <button>{t("connectUs")}</button>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import News from './pages/News'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import NewsDetail from './pages/NewsDetail'
 
 import { initReactI18next } from 'react-i18next';
 import translationEn from './locale/en'
@@ -40,6 +41,8 @@ function App() {
         <Route path='/our-services' element={<Services />} />
         <Route path='/news' element={<News />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/more' element={<NewsDetail />} />
+
       </Routes>
       <Footer/>
     </>
