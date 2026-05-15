@@ -5,10 +5,20 @@ import ico3 from '../assets/advantages/3.svg'
 import ico4 from '../assets/advantages/4.svg'
 import ico5 from '../assets/advantages/5.svg'
 import ico6 from '../assets/advantages/6.svg'
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
+import { useApi } from '../hooks/useApi'
+import { fetchServices } from '../api/endpoints'
+import { useLocale } from '../utils/locale'
+import { mediaUrl } from '../api/client'
+
+const fallbackIcons = [ico1, ico2, ico3, ico4, ico5, ico6]
 
 export default function Advantages() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
+  const { data, loading } = useApi(fetchServices)
+  const p = useLocale()
+  const services = data || []
+
   return (
     <section className='Advantages'>
       <div className="container">
@@ -18,54 +28,15 @@ export default function Advantages() {
           <button>{t("more")}</button>
         </div>
         <div className="row">
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico1} alt="icon" />
-              <h3>Дистрибьюция</h3>
-              <p>Мы предлагаем услуги дистрибьюции товаров через все возможные каналы, обеспечивая эффективную доставку от производителя до потребителя.</p>
+          {!loading && services.map((s, i) => (
+            <div className="col-md-4 block" key={s.id}>
+              <div className="card1">
+                <img src={s.icon ? mediaUrl(s.icon) : fallbackIcons[i % fallbackIcons.length]} alt={p(s, 'title')} />
+                <h3>{p(s, 'title')}</h3>
+                <p>{p(s, 'description')}</p>
+              </div>
             </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico2} alt="icon" />
-              <h3>Логистика</h3>
-              <p>Наша логистика обеспечивает эффективную доставку и управление запасами, оптимизируя цепочки поставок для эффективного бизнеса.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico3} alt="icon" />
-              <h3>Маркетинговое продвижение</h3>
-              <p>Команда профессионалов и экспертов могут обеспечить продвижение любого продукта «под ключ»</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico4} alt="icon" />
-              <h3>Мерчандайзинг</h3>
-              <p>Наши услуги мерчандайзинга направлены на создание привлекательного представления товаров в точках продажи для увеличения их видимости и продаж.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico5} alt="icon" />
-              <h3>Работа со специальными каналами</h3>
-              <p>Мы являемся экспертами по работе со специальными каналами, обеспечивая эффективное продвижение продуктов всеми доступными способами.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4 block">
-            <div className="card1">
-              <img src={ico6} alt="icon" />
-              <h3>Ввод нового продукта на рынок с нуля</h3>
-              <p>Мы поможем вам успешно ввести новый продукт на рынок, обеспечив экспертную поддержку от исследования и маркетинга до организации всех цепочек дистрибьюции в более 20 000 торговых точек по всему Узбекистану</p>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>
