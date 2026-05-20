@@ -15,7 +15,7 @@ const translationEn = {
   homeHeaderInfo3: "Our employees have extensive experience in the import and distribution of consumer goods.",
   homeHeaderInfo4: "Our mission is to provide consumers with high-quality products, making them as accessible as possible to everyone.",
 
-  CEOname: "Zafar Khojimatov",
+  CEOname: "Zafar Khodzhimatov",
   CEOposition: "Founder and General Director of the Company",
 
   homeAboutTitle: "Our experience, the trust of thousands of clients, and large-scale warehouse capacities are a solid foundation for your business",
@@ -36,6 +36,27 @@ const translationEn = {
   advantagesTitle: "Reliable Solutions for Effective Cooperation",
   advantagesInfo: "We offer a wide range of logistics and warehouse services tailored to the needs of your business",
 
+  advantagesCardTitle1 : "Distribution", 
+  advantagesCardInfo1 : "We offer product distribution services through all possible channels, ensuring efficient delivery from manufacturer to consumer.", 
+
+  advantagesCardTitle2 : "Logistics", 
+  advantagesCardInfo2 : "Our logistics services ensure efficient delivery and inventory management, optimizing supply chains for effective business operations.", 
+
+  advantagesCardTitle3 : "Marketing Promotion", 
+  advantagesCardInfo3 : "A team of professionals and experts can provide turnkey promotion for any product.", 
+
+  advantagesCardTitle4 : "Merchandising", 
+  advantagesCardInfo4 : "Our merchandising services are aimed at creating attractive product displays at points of sale to increase visibility and sales.", 
+
+  advantagesCardTitle5 : "Working with Special Channels", 
+  advantagesCardInfo5 : "We are experts in working with special channels, ensuring effective product promotion through all available methods.", 
+
+  advantagesCardTitle6 : "Launching a New Product to the Market from Scratch", 
+  advantagesCardInfo6 : "We will help you successfully launch a new product to the market by providing expert support from research and marketing to organizing all distribution chains across more than 20,000 retail outlets throughout Uzbekistan.", 
+
+  toastRed : "Please fill in all fields!",
+  toastGreen : "Message sent successfully!",
+  toastError : "Failed to send message!",
 
   reputationTitle: "Our Reputation is Your Guarantee of Success",
   reputationInfo: "We value the trust of our clients and strive to build mutually beneficial long-term partnerships",

@@ -17,6 +17,9 @@ import { LANGUANGE } from './locale'
 
 import i18n from "i18next";
 
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 i18n.use(initReactI18next).init({
   resources: {
     ru: { translation: translationRu },
@@ -35,6 +38,7 @@ function App() {
   return (
     <>
       <Navbar changeLang={changeLang}/>
+      <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route index element={<Home />} />
         <Route path='/about' element={<About />} />

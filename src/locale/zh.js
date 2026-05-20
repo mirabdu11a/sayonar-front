@@ -36,6 +36,28 @@ const translationZh = {
   advantagesTitle: "高效合作的可靠解决方案",
   advantagesInfo: "我们提供广泛的物流和仓储服务，并根据您的业务需求进行定制",
 
+  advantagesCardTitle1 : "分销", 
+  advantagesCardInfo1 : "我们通过所有可能的渠道提供产品分销服务，确保产品从制造商高效送达消费者。", 
+
+  advantagesCardTitle2 : "物流", 
+  advantagesCardInfo2 : "我们的物流服务确保高效配送和库存管理，优化供应链以提升业务效率。", 
+
+  advantagesCardTitle3 : "市场推广", 
+  advantagesCardInfo3 : "我们的专业团队和专家能够为任何产品提供“交钥匙”式推广服务。", 
+
+  advantagesCardTitle4 : "商品陈列", 
+  advantagesCardInfo4 : "我们的商品陈列服务旨在打造有吸引力的销售展示，以提高产品的可见度和销量。", 
+
+  advantagesCardTitle5 : "特殊渠道合作", 
+  advantagesCardInfo5 : "我们是特殊渠道运营方面的专家，通过所有可用方式确保产品的有效推广。", 
+
+  advantagesCardTitle6 : "从零开始将新产品推向市场", 
+  advantagesCardInfo6 : "我们将帮助您成功将新产品推向市场，从市场调研和营销到组织覆盖乌兹别克斯坦2万多个销售网点的完整分销链，提供全方位专业支持。", 
+
+  toastRed : "请填写所有字段！",
+  toastGreen : "消息发送成功！",
+  toastError : "消息发送失败！",
+
   reputationTitle: "我们的声誉是您成功的保障",
   reputationInfo: "我们珍视客户的信任，并致力于建立互利共赢的长期合作伙伴关系",
   connectUs: "联系我们",

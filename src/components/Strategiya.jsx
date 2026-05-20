@@ -30,8 +30,10 @@ export default function Strategiya() {
                 className='strategiya-card'
                 style={s.image ? { backgroundImage: `url(${mediaUrl(s.image)})` } : undefined}
               >
+              <div className="bg"></div>
                 <div>
-                  <span className='strategiya-badge'>S{i + 1}</span>
+                  {s.icon && <img  className='strategiya-badge' src={mediaUrl(s.icon)} alt={p(s, 'title')} />}
+                  {/* <img src={} className='strategiya-badge'>S{i + 1}</img> */}
                   <h3>{p(s, 'title')}</h3>
                   <p>{p(s, 'description')}</p>
                 </div>

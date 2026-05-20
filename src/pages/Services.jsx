@@ -6,7 +6,6 @@ export default function Services() {
   return (
     <>
       <ServicesBody/>
-      <FAQ/>
     </>
   )
 }

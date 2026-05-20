@@ -3,8 +3,7 @@ import AboutHeader from '../components/AboutHeader'
 import CompanySection from '../components/CompanySection'
 import AboutAdvantages from '../components/AboutAdvantages'
 import AboutImage from '../components/AboutImage'
-import Comments from '../components/Comments'
-import FAQ from '../components/FAQ'
+import Colleagues from '../components/Colleagues'
 
 export default function About() {
   return (
@@ -13,8 +12,7 @@ export default function About() {
       <CompanySection/>
       <AboutAdvantages/>
       <AboutImage/>
-      <Comments/>
-      <FAQ/>
+      <Colleagues/>
     </>
   )
 }

@@ -21,48 +21,48 @@ export default function Advantages() {
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico1} alt="icon" />
-              <h3>Дистрибьюция</h3>
-              <p>Мы предлагаем услуги дистрибьюции товаров через все возможные каналы, обеспечивая эффективную доставку от производителя до потребителя.</p>
+              <h3>{t("advantagesCardTitle1")}</h3>
+              <p>{t("advantagesCardInfo1")}</p>
             </div>
           </div>
 
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico2} alt="icon" />
-              <h3>Логистика</h3>
-              <p>Наша логистика обеспечивает эффективную доставку и управление запасами, оптимизируя цепочки поставок для эффективного бизнеса.</p>
+              <h3>{t("advantagesCardTitle2")}</h3>
+              <p>{t("advantagesCardInfo2")}</p>
             </div>
           </div>
 
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico3} alt="icon" />
-              <h3>Маркетинговое продвижение</h3>
-              <p>Команда профессионалов и экспертов могут обеспечить продвижение любого продукта «под ключ»</p>
+              <h3>{t("advantagesCardTitle3")}</h3>
+              <p>{t("advantagesCardInfo3")}</p>
             </div>
           </div>
 
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico4} alt="icon" />
-              <h3>Мерчандайзинг</h3>
-              <p>Наши услуги мерчандайзинга направлены на создание привлекательного представления товаров в точках продажи для увеличения их видимости и продаж.</p>
+              <h3>{t("advantagesCardTitle4")}</h3>
+              <p>{t("advantagesCardInfo4")}</p>
             </div>
           </div>
 
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico5} alt="icon" />
-              <h3>Работа со специальными каналами</h3>
-              <p>Мы являемся экспертами по работе со специальными каналами, обеспечивая эффективное продвижение продуктов всеми доступными способами.</p>
+              <h3>{t("advantagesCardTitle5")}</h3>
+              <p>{t("advantagesCardInfo5")}</p>
             </div>
           </div>
 
           <div className="col-md-4 block">
             <div className="card1">
               <img src={ico6} alt="icon" />
-              <h3>Ввод нового продукта на рынок с нуля</h3>
-              <p>Мы поможем вам успешно ввести новый продукт на рынок, обеспечив экспертную поддержку от исследования и маркетинга до организации всех цепочек дистрибьюции в более 20 000 торговых точек по всему Узбекистану</p>
+              <h3>{t("advantagesCardTitle6")}</h3>
+              <p>{t("advantagesCardInfo6")}</p>
             </div>
           </div>
 

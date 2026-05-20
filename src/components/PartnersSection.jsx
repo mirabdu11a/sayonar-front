@@ -26,19 +26,15 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        {!loading && partners.map((partner) => (
-          <div className="partner-block" key={partner.id}>
-            <h3>{p(partner, 'title')}</h3>
-            <p>{p(partner, 'description')}</p>
-            <div className="logo-body">
-              {(partner.images || []).map((img) => (
-                <div key={img.id}>
-                  <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+        <div className="logo-body">
+          {!loading && partners.map((partner) => 
+            (partner.images || []).map((img) => (
+              <div key={img.id} className="logo-item">
+                <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </section>
   );
