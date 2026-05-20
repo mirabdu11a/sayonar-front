@@ -55,7 +55,7 @@ export default function HomeNews() {
                   <Link to={`/news/${item.id}`} className="news-card">
                     <img src={mediaUrl(item.image)} alt={p(item, 'title')} />
                     <h4>{p(item, 'title')}</h4>
-                    <h5>{p(item, 'description')}</h5>
+                    <h5>{p(item, 'tizer')}</h5>
                   </Link>
                 </SwiperSlide>
               ))}

@@ -8,3 +8,4 @@ export const fetchColleagues = () => apiGet('/api/colleague/');
 export const fetchScales = () => apiGet('/api/scale/');
 export const fetchStrategies = () => apiGet('/api/strategy/');
 export const fetchRegions = () => apiGet('/api/region/');
+export const fetchServices = () => apiGet('/api/service/');

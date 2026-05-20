@@ -7,6 +7,7 @@ export default function MoreNews({ item }) {
   if (!item) return null
 
   const title = p(item, 'title')
+  const tizer = p(item, 'tizer')
   const description = p(item, 'description')
 
   return (
@@ -14,8 +15,14 @@ export default function MoreNews({ item }) {
       <div className="container">
         <div className='more-info'>Новости компании</div>
         <h2>{title}</h2>
-        <p className='news-tizer'>{description}</p>
+        {tizer && <p className='news-tizer'>{tizer}</p>}
         <img className='first-img' src={mediaUrl(item.image)} alt={title} />
+        {description && (
+          <div
+            className='news-body'
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
       </div>
     </section>
   )
