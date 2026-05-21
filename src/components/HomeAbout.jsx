@@ -44,7 +44,7 @@ export default function HomeAbout() {
         <div className='number-info'>
           {!loading && scales.map((s) => (
             <div key={s.id}>
-              <h3>{s.value} +</h3>
+              <h3>{s.value}</h3>
               <h4>{p(s, 'title')}</h4>
               <p>{p(s, 'description')}</p>
             </div>
