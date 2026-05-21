@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { useApi } from '../hooks/useApi'
 import { fetchRegions } from '../api/endpoints'
 import { useLocale } from '../utils/locale'
+import { useModal } from '../context/ModalContext';
 
 export default function CountryMap() {
   const [activeSlug, setActiveSlug] = useState('tashkent')
   const { t } = useTranslation()
   const { data, loading } = useApi(fetchRegions)
   const p = useLocale()
+  const { openModal } = useModal();
 
   const bySlug = useMemo(() => {
     const map = {}
@@ -30,7 +32,7 @@ export default function CountryMap() {
           <div className='center-title'>
             <h2>{t("mapTitle")}</h2>
             <p>{t("mapInfo")}</p>
-            <button>{t("connectUs")}</button>
+            <button onClick={openModal}>{t("connectUs")}</button>
           </div>
 
           <div className="row">

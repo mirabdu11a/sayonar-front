@@ -1,18 +1,40 @@
-import React from 'react';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { useApi } from '../hooks/useApi';
 import { fetchPartners } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
 import { mediaUrl } from '../api/client';
 import { useTranslation } from "react-i18next";
+import { useModal } from '../context/ModalContext';
 
 export default function PartnersSection() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
+
   const { data, loading } = useApi(fetchPartners);
   const p = useLocale();
   const partners = data || [];
   const { t } = useTranslation();
+  const { openModal } = useModal();
 
   return (
-    <section className='PartnersSection'>
+    <section ref={sectionRef} className='PartnersSection'>
       <div className="container">
         <div className="section-tittle">
           <div className='first-block col-md-3'>
@@ -22,7 +44,7 @@ export default function PartnersSection() {
           <div className='second-block'>
             <h2 className='col-md-9'>{t("parnersTittle")}</h2>
             <p>{t("parnersInfo2")}</p>
-            <button>{t("connectUs")}</button>
+            <button onClick={openModal}>{t("connectUs")}</button>
           </div>
         </div>
 

@@ -179,7 +179,7 @@ export default function ContactBody() {
               </div>
 
               <button type='submit' disabled={loading}>
-                {loading ? "Yuborilmoqda..." : t("recieveButton")}
+                {loading ? t("formButtonProcces") : t("recieveButton")}
               </button>
 
             </form>

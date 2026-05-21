@@ -19,6 +19,11 @@ import i18n from "i18next";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from './components/ScrollToTop'
+
+import { ModalProvider } from "./context/ModalContext";
+import ApplicationModal from './components/ApplicationModal'
+
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -37,18 +42,22 @@ function App() {
   };
   return (
     <>
+      <ModalProvider>
       <Navbar changeLang={changeLang}/>
       <ToastContainer position="top-right" autoClose={3000} />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/our-services' element={<Services />} />
-        <Route path='/news' element={<News />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/news/:id' element={<NewsDetail />} />
+      <ScrollToTop/>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/our-services' element={<Services />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/news/:id' element={<NewsDetail />} />
 
-      </Routes>
+        </Routes>
+        <ApplicationModal/>
       <Footer/>
+      </ModalProvider>
     </>
   )
 }

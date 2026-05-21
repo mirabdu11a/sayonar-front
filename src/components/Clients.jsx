@@ -4,12 +4,14 @@ import { fetchClients } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
 import { mediaUrl } from '../api/client';
 import { useTranslation } from "react-i18next";
+import { useModal } from '../context/ModalContext';
 
 export default function Clients() {
   const { data, loading } = useApi(fetchClients);
   const p = useLocale();
   const clients = data || [];
   const { t } = useTranslation();
+  const { openModal } = useModal();
 
   return (
     <section className='Clients'>
@@ -23,7 +25,7 @@ export default function Clients() {
           <div className='second-block'>
             <h2 className='col-md-9'>{t("clientsTitle")}</h2>
             <p>{t("clientsInfo2")}</p>
-            <button>{t("connectUs")}</button>
+            <button onClick={openModal}>{t("connectUs")}</button>
           </div>
         </div>
 

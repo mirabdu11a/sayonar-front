@@ -1,4 +1,7 @@
-import React from 'react';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { useApi } from '../hooks/useApi';
 import { fetchStrategies } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
@@ -6,13 +9,30 @@ import { mediaUrl } from '../api/client';
 import { useTranslation } from "react-i18next";
 
 export default function Strategiya() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
+
   const { data, loading } = useApi(fetchStrategies);
   const p = useLocale();
   const items = data || [];
   const { t } = useTranslation();
 
   return (
-    <section className='Strategiya'>
+    <section ref={sectionRef}  className='Strategiya'>
       <div className="container">
         <div className="section-tittle">
           <div className='first-block col-md-3'>

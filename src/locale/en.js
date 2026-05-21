@@ -20,9 +20,12 @@ const translationEn = {
 
   homeAboutTitle: "Our experience, the trust of thousands of clients, and large-scale warehouse capacities are a solid foundation for your business",
   homeAboutInfo: "Our scale in numbers",
+  formButtonProcces : "Sending...",
 
   aboutSectionInfo: "About Us",
   aboutSectionTitle: "Our Values",
+  moreNews : "More news",
+
 
   aboutSectionInfo2: "We believe that a successful business is daily creativity and maximum dedication, the creation of a highly efficient economic system, and that our success is based on knowledge and the грамотное application of macro- and microeconomic laws.",
   more: "Learn More",

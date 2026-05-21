@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import location from '../assets/nav-location.svg'
 import logo from '../assets/logo.svg'
 import gmail from '../assets/nav-gmail.svg'
@@ -7,13 +7,39 @@ import line from '../assets/line.svg'
 import flagRu from '../assets/flags/ru.svg'
 import flagEn from '../assets/flags/gb.svg'
 import flagZh from '../assets/flags/cn.svg'
-
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../context'
+import { useModal } from '../context/ModalContext';
 
 export default function Navbar() {
+  const [hide, setHide] = useState(false)
+  const { openModal } = useModal();
 
+  useEffect(() => {
+    let lastScroll = 0
+
+    const handleScroll = () => {
+      const currentScroll = window.scrollY
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // pastga scroll
+        setHide(true)
+      } else {
+        // tepaga scroll
+        setHide(false)
+      }
+
+      lastScroll = currentScroll
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  
   const dropdownRef = useRef(null)
 
   const { language: lang, changeLanguage } = useLanguage()
@@ -35,7 +61,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className='Navbar'>
+    <nav className={`Navbar ${hide ? "hide" : ""}`}>
 
       <div className="nav-head">
         <div className="container">
@@ -60,7 +86,7 @@ export default function Navbar() {
 
             <li className="lang-switch" ref={dropdownRef}>
 
-              <button
+              <div
                 onClick={() => setOpen(!open)}
                 className="lang-btn"
               >
@@ -71,7 +97,7 @@ export default function Navbar() {
                 </span>
 
                 <i className={`arrow-icon ${open ? 'up' : 'down'}`}></i>
-              </button>
+              </div>
 
               {open && (
                 <div className="lang-dropdown">
@@ -119,7 +145,7 @@ export default function Navbar() {
 
             </div>
 
-            <button>{t('connect')}</button>
+            <button onClick={openModal}>{t('connect')}</button>
 
           </div>
 

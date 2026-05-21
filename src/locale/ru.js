@@ -24,6 +24,8 @@ const translationRu = {
   homeAboutTitle : "Наш опыт, доверие тысяч клиентов и масштабные складские мощности - прочная основа вашего бизнеса",
   homeAboutInfo : "Наш масштаб в цифрах",
 
+  formButtonProcces : "Отправляется...",
+  moreNews : "Больше новостей",
   // AboutSection
 
   aboutSectionInfo : "О нас",

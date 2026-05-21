@@ -1,4 +1,7 @@
-import React from 'react';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import { useApi } from '../hooks/useApi';
 import { fetchScales } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
@@ -9,9 +12,26 @@ export default function HomeAbout() {
   const p = useLocale();
   const scales = data || [];
   const { t } = useTranslation();
+
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
   
   return (
-    <section className='HomeAbout'>
+    <section ref={sectionRef}  className='HomeAbout'>
       <div className="container">
         <div className="section-tittle row">
           <div className='first-block col-md-3'>

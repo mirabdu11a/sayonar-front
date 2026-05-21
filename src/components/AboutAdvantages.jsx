@@ -1,11 +1,32 @@
-import React from 'react'
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 import { useTranslation } from "react-i18next";
 
 export default function AboutAdvantages() {
   const { t } = useTranslation();
 
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
+
   return (
-    <section className='AboutAdvantages'>
+    <section ref={sectionRef} className='AboutAdvantages'>
       <div className="container">
         <div className='title'>
           <h2>{t("advantageAboutTitle")}</h2>
@@ -13,7 +34,7 @@ export default function AboutAdvantages() {
         </div>
         <div className="row">
 
-          <div className="col-md-4 block">
+          <div  className="col-md-4 block">
             <div className="advantages-card">
               <h4>{t("advantageAboutText1")}</h4>
               <svg xmlns="http://www.w3.org/2000/svg" width="310" height="271" viewBox="0 0 310 271" fill="none">

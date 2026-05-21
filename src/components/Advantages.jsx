@@ -10,22 +10,46 @@ import { useApi } from '../hooks/useApi'
 import { fetchServices } from '../api/endpoints'
 import { useLocale } from '../utils/locale'
 import { mediaUrl } from '../api/client'
+import { NavLink } from 'react-router-dom'
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const fallbackIcons = [ico1, ico2, ico3, ico4, ico5, ico6]
 
 export default function Advantages() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
+
   const { t } = useTranslation()
   const { data, loading } = useApi(fetchServices)
   const p = useLocale()
   const services = data || []
 
   return (
-    <section className='Advantages'>
+    <section ref={sectionRef}  className='Advantages'>
       <div className="container">
         <div className='center-title'>
           <h2>{t("advantagesTitle")}</h2>
           <p>{t("advantagesInfo")}</p>
-          <button>{t("more")}</button>
+          <NavLink to='/our-services'>
+            <button>{t("more")}</button>
+          </NavLink>
         </div>
         <div className="row">
           {!loading && services.map((s, i) => (

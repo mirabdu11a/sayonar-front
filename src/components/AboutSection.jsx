@@ -1,15 +1,36 @@
-import React from 'react'
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import ico1 from '../assets/aboutIco1.svg'
 import ico2 from '../assets/aboutIco2.svg'
 import img1 from '../assets/images/aboutSection1.webp'
 import img2 from '../assets/images/aboutSection2.webp'
 import img3 from '../assets/images/aboutSection3.webp'
 import { useTranslation } from "react-i18next";
+import { NavLink } from 'react-router-dom'
 
 export default function AboutSection() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1,
+
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      }
+    });
+
+  }, []);
+
   const { t } = useTranslation();
   return (
-    <section className='AboutSection'>
+    <section ref={sectionRef} className='AboutSection'>
       <div className="container">
         <div className="section-tittle">
           <div className='first-block col-md-3'>
@@ -19,7 +40,10 @@ export default function AboutSection() {
           <div className='second-block'>
             <h2 className='col-md-9'>{t("aboutSectionTitle")}</h2>
             <p>{t("aboutSectionInfo2")}</p>
-            <button>{t("more")}</button>
+            <NavLink to='/about'>
+
+              <button>{t("more")}</button>
+            </NavLink>
             <div className='about-advantages'>
 
               <div className='about-advantages-body'>

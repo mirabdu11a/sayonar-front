@@ -12,6 +12,7 @@ import { fetchNews } from '../api/endpoints';
 import { useLocale } from '../utils/locale';
 import { mediaUrl } from '../api/client';
 import { useTranslation } from "react-i18next";
+import { NavLink } from 'react-router-dom';
 
 export default function HomeNews() {
   const { data, loading } = useApi(fetchNews);
@@ -29,6 +30,10 @@ export default function HomeNews() {
           </div>
           <div className='second-block'>
             <h2 className='col-md-9'>{t("homeNewsTitle")}</h2>
+            <NavLink to="/news">
+              <button>{t("moreNews")}</button>
+            </NavLink>
+
           </div>
         </div>
 
