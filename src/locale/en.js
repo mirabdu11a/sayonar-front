@@ -15,7 +15,7 @@ const translationEn = {
   homeHeaderInfo3: "Our employees have extensive experience in the import and distribution of consumer goods.",
   homeHeaderInfo4: "Our mission is to provide consumers with high-quality products, making them as accessible as possible to everyone.",
 
-  CEOname: "Zafar Khodzhimatov",
+  CEOname: "Zafar Khodjimatov",
   CEOposition: "Founder and General Director of the Company",
 
   homeAboutTitle: "Our experience, the trust of thousands of clients, and large-scale warehouse capacities are a solid foundation for your business",
