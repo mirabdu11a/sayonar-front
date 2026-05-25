@@ -20,6 +20,7 @@ const translationZh = {
   formButtonProcces : "正在发送...",
   moreNews : "更多新闻",
 
+  newsTopTitle: "公司新闻",
 
 
   homeAboutTitle: "我们的经验、数千客户的信任以及大型仓储能力，是您业务的坚实基础",

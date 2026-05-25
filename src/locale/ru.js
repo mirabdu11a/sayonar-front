@@ -27,6 +27,8 @@ const translationRu = {
   formButtonProcces : "Отправляется...",
   moreNews : "Больше новостей",
   // AboutSection
+  newsTopTitle : "Новости компании",
+
 
   aboutSectionInfo : "О нас",
   aboutSectionTitle : "Наши Ценности",

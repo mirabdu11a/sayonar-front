@@ -21,7 +21,7 @@ export default function Home() {
       <Reputation/>
       <PartnersSection/>
       <Strategiya/>
-      <Colleagues/>
+      {/* <Colleagues/> */}
       <Clients/>
       <CountryMap/>
       <HomeNews/>

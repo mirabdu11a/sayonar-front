@@ -7,15 +7,24 @@ import line from '../assets/line.svg'
 import flagRu from '../assets/flags/ru.svg'
 import flagEn from '../assets/flags/gb.svg'
 import flagZh from '../assets/flags/cn.svg'
+
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../context'
-import { useModal } from '../context/ModalContext';
+import { useModal } from '../context/ModalContext'
 
 export default function Navbar() {
   const [hide, setHide] = useState(false)
-  const { openModal } = useModal();
+  const [open, setOpen] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false)
 
+  const dropdownRef = useRef(null)
+
+  const { openModal } = useModal()
+  const { language: lang, changeLanguage } = useLanguage()
+  const { i18n, t } = useTranslation()
+
+  // 1. Skroll bo'lganda navbarni yashirish effekti
   useEffect(() => {
     let lastScroll = 0
 
@@ -23,10 +32,8 @@ export default function Navbar() {
       const currentScroll = window.scrollY
 
       if (currentScroll > lastScroll && currentScroll > 100) {
-        // pastga scroll
         setHide(true)
       } else {
-        // tepaga scroll
         setHide(false)
       }
 
@@ -39,19 +46,25 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  
-  const dropdownRef = useRef(null)
 
-  const { language: lang, changeLanguage } = useLanguage()
-  const { i18n } = useTranslation()
-  const { t } = useTranslation()
+  // 2. Mobil menyu ochilganda orqa fon skrollini o'chirish effekti
+  useEffect(() => {
+    if (mobileMenu) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
 
-  const [open, setOpen] = useState(false)
+    // Komponent unmount bo'lganda tozalash
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenu])
 
   const languages = {
-    ru: { name: "Русский", flag: flagRu },
-    en: { name: "English", flag: flagEn },
-    zh: { name: "中文", flag: flagZh },
+    ru: { name: 'Русский', flag: flagRu },
+    en: { name: 'English', flag: flagEn },
+    zh: { name: '中文', flag: flagZh },
   }
 
   const changeLocale = (lng) => {
@@ -61,29 +74,31 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`Navbar ${hide ? "hide" : ""}`}>
+    <nav className={`Navbar ${hide ? 'hide' : ''}`}>
 
+      {/* TOP */}
       <div className="nav-head">
         <div className="container">
 
-          <div className='nav-head__body'>
+          <div className="nav-head__body">
 
-            <div className='d-flex'>
+            <div className="nav-info">
 
-              <div className='first'>
-                <img src={location} alt="location" />
-                {t('addres')}
+              <div className="info-item item1">
+                <img src={location} alt="" />
+                <span>{t('addres')}</span>
               </div>
 
-              <img src={line} alt="line" />
+              <img className='line' src={line} alt="" />
 
-              <div>
-                <img className='second' src={gmail} alt="email" />
-                hello@sayonar.uz
+              <div className="info-item">
+                <img src={gmail} alt="" />
+                <span>hello@sayonar.uz</span>
               </div>
 
             </div>
 
+            {/* LANGUAGE */}
             <li className="lang-switch" ref={dropdownRef}>
 
               <div
@@ -92,9 +107,7 @@ export default function Navbar() {
               >
                 <img src={languages[lang]?.flag} alt={lang} />
 
-                <span>
-                  {languages[lang]?.name}
-                </span>
+                <span>{languages[lang]?.name}</span>
 
                 <i className={`arrow-icon ${open ? 'up' : 'down'}`}></i>
               </div>
@@ -107,7 +120,7 @@ export default function Navbar() {
                     <div
                       key={lng}
                       onClick={() => changeLocale(lng)}
-                      className={`lang-item ${lang === lng ? "active" : ""}`}
+                      className={`lang-item ${lang === lng ? 'active' : ''}`}
                     >
                       <img src={languages[lng].flag} alt={lng} />
                       <span>{languages[lng].name}</span>
@@ -125,27 +138,73 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* BOTTOM */}
       <div className="nav-body">
 
         <div className="container">
 
           <div className="nav-body__block">
 
-            <div className='nav-links'>
+            <NavLink to='/'>
+              <img src={logo} alt="logo" className='logo' />
+            </NavLink>
 
-              <img src={logo} alt="logo" />
+            <div className={`nav-menu ${mobileMenu ? 'active' : ''}`}>
 
               <ul>
-                <li><NavLink to='/'>{t('home')}</NavLink></li>
-                <li><NavLink to='/about'>{t('about')}</NavLink></li>
-                <li><NavLink to='/our-services'>{t('services')}</NavLink></li>
-                <li><NavLink to='/news'>{t('news')}</NavLink></li>
-                <li><NavLink to='/contact'>{t('contact')}</NavLink></li>
+
+                <li>
+                  <NavLink onClick={() => setMobileMenu(false)} to='/'>
+                    {t('home')}
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink onClick={() => setMobileMenu(false)} to='/about'>
+                    {t('about')}
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink onClick={() => setMobileMenu(false)} to='/our-services'>
+                    {t('services')}
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink onClick={() => setMobileMenu(false)} to='/news'>
+                    {t('news')}
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink onClick={() => setMobileMenu(false)} to='/contact'>
+                    {t('contact')}
+                  </NavLink>
+                </li>
+
               </ul>
+
+              <button
+                onClick={() => {
+                  openModal()
+                  setMobileMenu(false)
+                }}
+              >
+                {t('connect')}
+              </button>
 
             </div>
 
-            <button onClick={openModal}>{t('connect')}</button>
+            {/* BURGER */}
+            <div
+              className={`burger ${mobileMenu ? 'active' : ''}`}
+              onClick={() => setMobileMenu(!mobileMenu)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
 
           </div>
 

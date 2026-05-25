@@ -22,6 +22,9 @@ const translationEn = {
   homeAboutInfo: "Our scale in numbers",
   formButtonProcces : "Sending...",
 
+  newsTopTitle : "Новости компании",
+
+
   aboutSectionInfo: "About Us",
   aboutSectionTitle: "Our Values",
   moreNews : "More news",

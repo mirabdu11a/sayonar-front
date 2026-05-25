@@ -9,7 +9,7 @@ export default function HomeHeader() {
       <div className="header-body">
         <div className='header-infoblock1'>
           <div className="container">
-            <div className="col-6 b1 block">
+            <div className="col-md-6 b1 block">
 
               <h2>{t("homeHeaderTitle")}</h2> 
               <p>{t("homeHeaderInfo")}</p>
@@ -19,7 +19,7 @@ export default function HomeHeader() {
         </div>
         <div className='header-infoblock2'>
           <div className="container">
-            <div className="col-6 b2 block">
+            <div className="col-md-6 b2 block">
               <p>{t("homeHeaderInfo2")} <br /><br /> {t("homeHeaderInfo3")} <br /> <br />{t("homeHeaderInfo4")}</p>
             </div>
           </div>

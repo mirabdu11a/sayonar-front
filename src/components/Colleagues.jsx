@@ -44,7 +44,7 @@ export default function Colleagues() {
         </div>
         <div className="row">
           {!loading && colleagues.map((c) => (
-            <div className="col-md-3" key={c.id}>
+            <div className="col-md-3 block" key={c.id}>
               <div className="personal-card">
                 <img src={mediaUrl(c.image)} alt={p(c, 'full_name')} />
                 <h3>{p(c, 'full_name')}</h3>
