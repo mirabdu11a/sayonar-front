@@ -9,7 +9,7 @@ const translationRu = {
   addres: "г. Ташкент, Мирабадский район, ул. Афросиаб, 15/2",
 
   // HomeHeader
-  homeHeaderTitle : "SAYONAR - Созидание Успеха",
+  homeHeaderTitle : "SAYONAR - Создание Успеха",
   homeHeaderInfo : "Компания «SAYONAR» — дистрибьютор продуктов Лидеров своих категорий в FMCG сегменте на рынке Республики Узбекистан.",
 
   homeHeaderInfo2 : "Добро пожаловать на сайт нашей Компании!",

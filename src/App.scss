@@ -1310,13 +1310,14 @@ body{
   }
 
  .logos-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border: 1px solid #EAEAEA;
-  height: 200px;
-  overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #EAEAEA;
+    height: 200px;
+    overflow: hidden;
+    padding: 20px;
 
   img {
     max-width: 100%;
