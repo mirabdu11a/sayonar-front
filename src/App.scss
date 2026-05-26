@@ -1309,7 +1309,7 @@ body{
     margin-top: 40px;
   }
 
-  .logos-card {
+ .logos-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1321,20 +1321,17 @@ body{
   img {
     max-width: 100%;
     max-height: 180px;
+    object-fit: contain;
 
-    // boshida oq-qora
+    // normal oq-qora
     filter: grayscale(100%);
-    opacity: 0.7;
-
-    // animatsiya
-    transition: all 0.4s ease;
+    transition: filter 0.4s ease, transform 0.4s ease;
   }
 
   &:hover {
     img {
-      // hoverda rangli
+      // hoverda original rang
       filter: grayscale(0%);
-      opacity: 1;
       transform: scale(1.03);
     }
   }
