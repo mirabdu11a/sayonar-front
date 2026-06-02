@@ -52,7 +52,13 @@ export default function PartnersSection() {
           {!loading && partners.map((partner) => 
             (partner.images || []).map((img) => (
               <div key={img.id} className="logo-item">
-                <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
+                {img.site_url ? (
+                  <a href={img.site_url} target="_blank" rel="noopener noreferrer">
+                    <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
+                  </a>
+                ) : (
+                  <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
+                )}
               </div>
             ))
           )}
