@@ -49,12 +49,31 @@ export default function PartnersSection() {
         </div>
 
         <div className="logo-body">
-          {!loading && partners.map((partner) => 
-            (partner.images || []).map((img) => (
-              <div key={img.id} className="logo-item">
-                <img src={mediaUrl(img.image)} alt={p(partner, 'title')} />
-              </div>
-            ))
+          {!loading && partners.map((partner) =>
+            (partner.images || []).map((img) => {
+              const content = (
+                <img
+                  src={mediaUrl(img.image)}
+                  alt={p(partner, 'title')}
+                />
+              );
+
+              return img.site_url ? (
+                <a
+                  key={img.id}
+                  className="logo-item"
+                  href={img.site_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={img.id} className="logo-item">
+                  {content}
+                </div>
+              );
+            })
           )}
         </div>
       </div>

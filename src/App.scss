@@ -1071,7 +1071,7 @@ body{
     width: 100%;    // To'liq kenglikni egallashi uchun
     align-items: center;
 
-    div {
+    div, a {
       width: 25%;   // Har qatorda 4 tadan logotip chiqaradi
       display: flex;
       justify-content: center;
@@ -3381,7 +3381,7 @@ body{
       width: 100%;    // To'liq kenglikni egallashi uchun
       align-items: center;
 
-      div {
+      div, a {
         width: 100%;   // Har qatorda 4 tadan logotip chiqaradi
         display: flex;
         justify-content: center;
