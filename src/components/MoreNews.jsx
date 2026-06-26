@@ -12,6 +12,7 @@ export default function MoreNews({ item }) {
   const title = p(item, 'title')
   const tizer = p(item, 'tizer')
   const description = p(item, 'description')
+  const gallery = item.images || []
 
   return (
     <section className='MoreNews'>
@@ -25,6 +26,13 @@ export default function MoreNews({ item }) {
             className='news-body'
             dangerouslySetInnerHTML={{ __html: description }}
           />
+        )}
+        {gallery.length > 0 && (
+          <div className='news-gallery'>
+            {gallery.map((img) => (
+              <img key={img.id} src={mediaUrl(img.image)} alt={title} />
+            ))}
+          </div>
         )}
       </div>
     </section>
