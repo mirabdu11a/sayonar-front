@@ -12,7 +12,13 @@ export default function MoreNews({ item }) {
   const title = p(item, 'title')
   const tizer = p(item, 'tizer')
   const description = p(item, 'description')
-  const gallery = item.images || []
+
+  // The gallery is the single source of truth. Fall back to the legacy
+  // single `image` only when a news has no gallery images yet.
+  const gallery = (item.images && item.images.length)
+    ? item.images.map((img) => img.image)
+    : (item.image ? [item.image] : [])
+  const [hero, ...rest] = gallery
 
   return (
     <section className='MoreNews'>
@@ -20,17 +26,17 @@ export default function MoreNews({ item }) {
         <div className='more-info'>{t("newsTopTitle")}</div>
         <h2>{title}</h2>
         {tizer && <p className='news-tizer'>{tizer}</p>}
-        <img className='first-img' src={mediaUrl(item.image)} alt={title} />
+        {hero && <img className='first-img' src={mediaUrl(hero)} alt={title} />}
         {description && (
           <div
             className='news-body'
             dangerouslySetInnerHTML={{ __html: description }}
           />
         )}
-        {gallery.length > 0 && (
+        {rest.length > 0 && (
           <div className='news-gallery'>
-            {gallery.map((img) => (
-              <img key={img.id} src={mediaUrl(img.image)} alt={title} />
+            {rest.map((src, i) => (
+              <img key={i} src={mediaUrl(src)} alt={title} />
             ))}
           </div>
         )}
