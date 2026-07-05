@@ -16,7 +16,7 @@ export default function YandexMap() {
       const placemark = new window.ymaps.Placemark(
         [41.296873, 69.272636],
         {
-          hintContent: "Matras Premier",
+          hintContent: "SAYONAR",
         },
         {
           iconLayout: "default#image",
