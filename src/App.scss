@@ -2689,6 +2689,20 @@ body{
     }
   }
 
+  .news-gallery{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 80px;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  }
+
   .data-block{
     color: var(--Light-Grey-Grey-7, #ABABAB);
     font-size: var(--Font-Size-sm, 14px);
@@ -4588,6 +4602,12 @@ body{
         color: inherit;
         text-decoration: underline;
       }
+    }
+
+    .news-gallery{
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
     }
 
     .data-block{
